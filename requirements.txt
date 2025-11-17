@@ -1,0 +1,39 @@
+# Axis Bank Document Verification Agent
+# Core dependencies
+
+# Agno framework for multi-agent systems
+agno>=0.1.0
+
+# OpenAI API (for GPT models)
+openai>=1.0.0
+
+# Anthropic API (for Claude models - optional)
+anthropic>=0.18.0
+
+# Pydantic for data validation and structured outputs
+pydantic>=2.0.0
+
+# SQLAlchemy for database storage (used by Agno)
+sqlalchemy>=2.0.0
+
+# Image processing (for base64 encoding)
+Pillow>=10.0.0
+
+# Note: OpenAI Vision API (GPT-4o) is used for image analysis
+# No additional OCR libraries needed
+
+# For face detection/recognition (optional)
+# face-recognition>=1.3.0
+# opencv-python>=4.8.0
+
+# Utilities
+python-dateutil>=2.8.0
+
+# For Streamlit integration (if building UI)
+# streamlit>=1.28.0
+
+# Development dependencies (optional)
+# pytest>=7.4.0
+# black>=23.0.0
+# mypy>=1.5.0
+
