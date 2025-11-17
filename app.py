@@ -6,17 +6,23 @@ import tempfile
 import os
 from dotenv import load_dotenv
 
-OPENAI_API_KEY = st.sidebar.text_input("OpenAI api key", type="password")
+# Page configuration
+st.set_page_config(
+    page_title="Axis Bank Document Verification Chatbot",
+    page_icon="🏦",
+    layout="wide"
+)
+
+    # Title
+st.title("🏦 Axis Bank Document Verification Chatbot")
+st.markdown("Chat with our AI assistant to verify your documents")
+
+
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 if OPENAI_API_KEY :
     os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
     from verification_agent import create_agent
-    # Page configuration
-    st.set_page_config(
-        page_title="Axis Bank Document Verification Chatbot",
-        page_icon="🏦",
-        layout="wide"
-    )
 
     # Initialize session state
     if "agent" not in st.session_state:
@@ -36,10 +42,6 @@ if OPENAI_API_KEY :
             f.write(uploaded_file.getbuffer())
         return file_path
 
-
-    # Title
-    st.title("🏦 Axis Bank Document Verification Chatbot")
-    st.markdown("Chat with our AI assistant to verify your documents")
 
     # Sidebar
     with st.sidebar:
@@ -188,4 +190,4 @@ if OPENAI_API_KEY :
         All sensitive information (Aadhaar numbers, PAN numbers, etc.) will be automatically masked in responses for your security.
         """)
 else:
-    st.error("❗ Please enter your OpenAI API Key in the sidebar to use the chatbot.")
+    st.info("❗ OpenAI API Key Not Found, Please setup in (secrets.toml) file.")
